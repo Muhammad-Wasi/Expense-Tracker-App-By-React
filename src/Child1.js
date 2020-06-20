@@ -47,14 +47,19 @@ let {addTransaction}=useContext(trnsaction)
         <hr />
       </div>
       <div className="history">
-        {transactions?.transactions.map((transObj, ind) => {
-          return (
-            <div className="flex justify-between bg-white m-2 p-2 " key={ind}>
-              <span>{transObj.desc}</span>
-              <span>{transObj.amount}</span>
-            </div>
-          );
-        })}
+        {
+          transactions && transactions.length? 
+            transactions.map((transObj, ind) => {
+              return (
+                <div className="flex justify-between bg-white m-2 p-2 " key={ind}>
+                  <span>{transObj.desc}</span>
+                  <span>{transObj.amount}</span>
+                </div>
+              );
+            })
+           :
+          null
+        }
       </div>
 
       <div>
